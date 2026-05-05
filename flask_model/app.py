@@ -7,11 +7,11 @@ import io
 app = Flask(__name__)
 
 # Load model once at startup
-MODEL_PATH = './banana_mobilenet_final.h5'
+MODEL_PATH = './hybrid_model.h5'
 model = tf.keras.models.load_model(MODEL_PATH)
 
 CLASS_NAMES = ['healthy_leaves', 'panama_wilt', 'potassium_deficiency', 'sigatoka']
-IMG_SIZE = 224
+IMG_SIZE = 256
 
 def preprocess_image(image_bytes):
     img = Image.open(io.BytesIO(image_bytes)).convert('RGB')
