@@ -51,7 +51,7 @@ export default function Hero({ onScanClick }) {
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-val">98.2%</span>
+              <span className="stat-val">96.2%</span>
               <span className="stat-label">Accuracy</span>
             </div>
             <div className="stat-item">

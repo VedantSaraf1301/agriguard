@@ -44,7 +44,8 @@ export default function Uploader({ onResult, onLoading }) {
     try {
       const formData = new FormData();
       formData.append('image', preview.file);
-      const { data } = await axios.post('http://localhost:3001/predict', formData);
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+      const { data } = await axios.post(`${backendUrl}/predict`, formData);
       onResult({
         disease: CLASS_MAP[data.class] || 'fresh',
         confidence: data.confidence,

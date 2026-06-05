@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: agriguard-flask
+    runtime: python
+    rootDir: flask_model
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+  - type: web
+    name: agriguard-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
+      - key: FLASK_URL
+        sync: false
